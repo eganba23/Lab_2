@@ -28,7 +28,12 @@ true_plastic <- plastic_waste %>%
 
 ggplot(data = true_plastic, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
-  geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
+  geom_histogram(binwidth = 0.2) + facet_wrap(~continent) +
+  labs(
+      x = "Plastic waste per captia by country",
+      y = "Amount",
+      title = "Plastic Waste"
+  )
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
@@ -42,13 +47,19 @@ ggplot(
     fill = continent
   )
 ) +
-  geom_density(alpha = 0.7)
+  geom_density(alpha = 0.7) +
+  labs(
+      x = "Plastic waste per captia",
+      y = "amount",
+      title = "Density map of Plastic Waste by country"
+  )
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-2.png)<!-- --> What
 I can tell is that they all look pretty similar in terms of plastic
 waste per capita. North America has a singular outlier which makes the
-graph all look the same.
+graph all look the same. Took out North America outlier, all still
+follow similar trend. Africa has higher plastic waste.
 
 ### Exercise 2
 
@@ -75,7 +86,12 @@ ggplot(
     y = plastic_waste_per_cap
   )
 ) +
-  geom_boxplot()
+  geom_boxplot() +
+labs(
+      x = "Plastic waste per captia",
+      y = "amount",
+      title = "Side by side of Plastic Waste by country"
+  )
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-2.png)<!-- -->
@@ -86,11 +102,25 @@ show multiple colors. Density is universal and not tied to a variable.
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+They all look like vases. Asia has a really skinny neck.
 
 ``` r
-# insert code here
+ggplot(
+  data = true_plastic,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+  )
+) +
+ geom_violin() +
+  labs(
+      x = "Plastic waste per captia",
+      y = "amount",
+      title = "Violin map of Plastic Waste by country"
+  )
 ```
+
+![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
 
 ### Exercise 4
 
