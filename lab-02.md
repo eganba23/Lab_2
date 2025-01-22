@@ -84,6 +84,10 @@ ggplot(
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
+We use color and fill for aesthetics because they are tied to a variable
+(continent). This allows for the color to change with each variable and
+show multiple colors. Density is universal and not tied to a variable.
+
 ### Exercise 3
 
 Remove this text, and add your answer for Exercise 3 here.
