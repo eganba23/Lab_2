@@ -84,6 +84,23 @@ ggplot(
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
+``` r
+#plot side by side
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+  )
+) +
+  geom_boxplot()
+```
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-2.png)<!-- -->
+
 We use color and fill for aesthetics because they are tied to a variable
 (continent). This allows for the color to change with each variable and
 show multiple colors. Density is universal and not tied to a variable.
