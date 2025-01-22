@@ -141,7 +141,8 @@ ggplot(
 labs(
       x = "Mismanaged Plastic Waste",
       y = "Plastic Waste",
-      title = "Plastic Waste x mismanaged plastic waste by Continent"
+      title = "Plastic Waste x mismanaged plastic waste by Continent",
+      color = "Continent"
   )
 ```
 
@@ -161,7 +162,8 @@ ggplot(
 labs(
       x = "Total Population",
       y = "Plastic Waste",
-      title = "Plastic Waste x Total Poulation by Continent"
+      title = "Plastic Waste x Total Poulation by Continent",
+      color = "Continent"
   )
 ```
 
@@ -182,7 +184,8 @@ ggplot(
 labs(
       x = "Costal Population",
       y = "Plastic Waste",
-      title = "Plastic Waste x Costal Poulation by Continent"
+      title = "Plastic Waste x Costal Poulation by Continent",
+      color = "Continent"
   )
 ```
 
@@ -197,5 +200,27 @@ people, more due to location.
 Remove this text, and add your answer for Exercise 5 here.
 
 ``` r
-# insert code here
+ggplot(
+  data = true_plastic,
+  mapping = aes(
+    x = coastal_pop / total_pop,
+    y = plastic_waste_per_cap,
+    color = continent
+  )
+) +
+  theme_bw()+
+  scale_color_viridis_d()+
+  geom_point() +
+  geom_smooth(color='black') +
+labs(
+      x = "Costal Population Proportion (Costal / total population)",
+      y = "Plastic Waste per Capita",
+      title = "Plastic Waste vs Costal Poulation Proportion",
+      subtitle = "by continent",
+      color = "Continent"
+  ) 
 ```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
