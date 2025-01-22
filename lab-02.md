@@ -1,7 +1,7 @@
 Lab 02 - Plastic waste
 ================
-Insert your name here
-Insert date here
+Benjamin
+1/22/25
 
 ## Load packages and data
 
@@ -30,6 +30,7 @@ true_plastic <- plastic_waste %>%
 ggplot(data = true_plastic, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
   geom_histogram(binwidth = 0.2) + facet_wrap(~continent) +
+  theme_bw()+
   labs(
       x = "Plastic waste per captia by country",
       y = "Amount",
@@ -49,6 +50,7 @@ ggplot(
   )
 ) +
   geom_density(alpha = 0.7) +
+  theme_bw()+
   labs(
       x = "Plastic waste per captia",
       y = "amount",
@@ -73,7 +75,8 @@ ggplot(
     fill = continent
   )
 ) +
-  geom_density(alpha = 0.1)
+  geom_density(alpha = 0.1)+
+theme_bw()
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
@@ -88,6 +91,7 @@ ggplot(
   )
 ) +
   geom_boxplot() +
+  theme_bw()+
 labs(
       x = "Plastic waste per captia",
       y = "amount",
@@ -114,6 +118,7 @@ ggplot(
   )
 ) +
  geom_violin() +
+  theme_bw()+
   labs(
       x = "Continent",
       y = "Plastic Waste",
@@ -138,6 +143,7 @@ ggplot(
   )
 ) +
   geom_point() +
+  theme_bw()+
 labs(
       x = "Mismanaged Plastic Waste",
       y = "Plastic Waste",
@@ -159,6 +165,7 @@ ggplot(
   )
 ) +
   geom_point() +
+  theme_bw()+
 labs(
       x = "Total Population",
       y = "Plastic Waste",
@@ -181,6 +188,7 @@ ggplot(
   )
 ) +
   geom_point() +
+  theme_bw()+
 labs(
       x = "Costal Population",
       y = "Plastic Waste",
