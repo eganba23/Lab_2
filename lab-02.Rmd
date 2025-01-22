@@ -26,7 +26,7 @@ Second plot is the same data as a density plot.
 ```{r plastic-waste-continent}
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
-  geom_histogram(binwidth = 0.2) + facet_wrap(vars(continent))
+  geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
 plastic_waste %>%
   filter(plastic_waste_per_cap > 3.5)
 
@@ -40,14 +40,24 @@ ggplot(
     fill = continent
   )
 ) +
-  geom_density()
+  geom_density(alpha = 0.7)
 
 ```
+What I can tell is that they all look pretty similar in terms of plastic waste per capita. North America has a singular outlier which makes the graph all look the same.
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_density(alpha = 0.1)
+
 ```
 
 ### Exercise 3

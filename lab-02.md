@@ -18,13 +18,14 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 ### Exercise 1
 
 First plots are histograms of the distribution of plastic waste per
-capita faceted by continent
+capita faceted by continent.
 
-Second plot
+Second plot is the same data as a density plot.
 
 ``` r
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
-  geom_histogram(binwidth = 0.2) + facet_wrap(vars(continent))
+  #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
+  geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
 ```
 
     ## Warning: Removed 51 rows containing non-finite outside the scale range
@@ -53,19 +54,35 @@ ggplot(
     fill = continent
   )
 ) +
-  geom_density()
+  geom_density(alpha = 0.7)
 ```
 
     ## Warning: Removed 51 rows containing non-finite outside the scale range
     ## (`stat_density()`).
 
-![](lab-02_files/figure-gfm/plastic-waste-continent-2.png)<!-- -->
+![](lab-02_files/figure-gfm/plastic-waste-continent-2.png)<!-- --> What
+I can tell is that they all look pretty similar in terms of plastic
+waste per capita. North America has a singular outlier which makes the
+graph all look the same.
 
 ### Exercise 2
 
 ``` r
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_density(alpha = 0.1)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_density()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
 ### Exercise 3
 
