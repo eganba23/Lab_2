@@ -23,31 +23,19 @@ capita faceted by continent.
 Second plot is the same data as a density plot.
 
 ``` r
-ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+true_plastic <- plastic_waste %>%
+  filter(plastic_waste_per_cap < 3)
+
+ggplot(data = true_plastic, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
   geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
 ```
 
-    ## Warning: Removed 51 rows containing non-finite outside the scale range
-    ## (`stat_bin()`).
-
 ![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
 
 ``` r
-plastic_waste %>%
-  filter(plastic_waste_per_cap > 3.5)
-```
-
-    ##   code              entity     continent year gdp_per_cap plastic_waste_per_cap
-    ## 1  TTO Trinidad and Tobago North America 2010    31260.91                   3.6
-    ##   mismanaged_plastic_waste_per_cap mismanaged_plastic_waste coastal_pop
-    ## 1                             0.19                    94066     1358433
-    ##   total_pop
-    ## 1   1341465
-
-``` r
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = plastic_waste_per_cap,
     color = continent,
@@ -56,9 +44,6 @@ ggplot(
 ) +
   geom_density(alpha = 0.7)
 ```
-
-    ## Warning: Removed 51 rows containing non-finite outside the scale range
-    ## (`stat_density()`).
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-2.png)<!-- --> What
 I can tell is that they all look pretty similar in terms of plastic
@@ -69,7 +54,7 @@ graph all look the same.
 
 ``` r
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = plastic_waste_per_cap,
     color = continent,
@@ -79,15 +64,12 @@ ggplot(
   geom_density(alpha = 0.1)
 ```
 
-    ## Warning: Removed 51 rows containing non-finite outside the scale range
-    ## (`stat_density()`).
-
 ![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
 ``` r
 #plot side by side
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = continent,
     y = plastic_waste_per_cap
@@ -95,9 +77,6 @@ ggplot(
 ) +
   geom_boxplot()
 ```
-
-    ## Warning: Removed 51 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-2.png)<!-- -->
 

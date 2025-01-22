@@ -24,16 +24,17 @@ First plots are histograms of the distribution of plastic waste per capita facet
 Second plot is the same data as a density plot.
 
 ```{r plastic-waste-continent}
-ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+true_plastic <- plastic_waste %>%
+  filter(plastic_waste_per_cap < 3)
+
+ggplot(data = true_plastic, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
   geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
-plastic_waste %>%
-  filter(plastic_waste_per_cap > 3.5)
 
 
 
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = plastic_waste_per_cap,
     color = continent,
@@ -42,14 +43,15 @@ ggplot(
 ) +
   geom_density(alpha = 0.7)
 
+
 ```
-What I can tell is that they all look pretty similar in terms of plastic waste per capita. North America has a singular outlier which makes the graph all look the same.
+What I can tell is that they all look pretty similar in terms of plastic waste per capita. North America has a singular outlier which makes the graph all look the same. Took out North America outlier, all still follow similar trend. Africa has higher plastic waste.
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = plastic_waste_per_cap,
     color = continent,
@@ -60,7 +62,7 @@ ggplot(
 
 #plot side by side
 ggplot(
-  data = plastic_waste,
+  data = true_plastic,
   mapping = aes(
     x = continent,
     y = plastic_waste_per_cap
