@@ -24,8 +24,9 @@ First plots are histograms of the distribution of plastic waste per capita facet
 Second plot is the same data as a density plot.
 
 ```{r plastic-waste-continent}
+#code to handle outliers
 true_plastic <- plastic_waste %>%
-  filter(plastic_waste_per_cap < 3)
+  filter(plastic_waste_per_cap < 3, mismanaged_plastic_waste < 3000000, total_pop < 250000000, coastal_pop < 150000000)
 
 ggplot(data = true_plastic, aes(x = plastic_waste_per_cap)) +
   #To make them one graph by color, add in fill = continent after plastice_waste_per_cap
@@ -82,7 +83,7 @@ ggplot(
 labs(
       x = "Plastic waste per captia",
       y = "amount",
-      title = "Side by side of Plastic Waste by country"
+      title = "Side by side of Plastic Waste by Continent"
   )
 ```
 
@@ -103,32 +104,77 @@ ggplot(
 ) +
  geom_violin() +
   labs(
-      x = "Plastic waste per captia",
-      y = "amount",
-      title = "Violin map of Plastic Waste by country"
+      x = "Continent",
+      y = "Plastic Waste",
+      title = "Violin map of Plastic Waste by Continent"
   )
 
 ```
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+Asia has more mismanaged plastic waste, yet it's low on the amount of plastic waste per captia.
 
 ```{r plastic-waste-mismanaged}
-# insert code here
-```
 
-```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot(
+  data = true_plastic,
+  mapping = aes(
+    x = mismanaged_plastic_waste,
+    y = plastic_waste_per_cap,
+    color = continent
+  )
+) +
+  geom_point() +
+labs(
+      x = "Mismanaged Plastic Waste",
+      y = "Plastic Waste",
+      title = "Plastic Waste x mismanaged plastic waste by Continent"
+  )
+
 ```
+High population in Asia yet lower on plastic waste per capita.
 
 ```{r plastic-waste-population-total}
-# insert code here
+
+ggplot(
+  data = true_plastic,
+  mapping = aes(
+    x = total_pop,
+    y = plastic_waste_per_cap,
+    color = continent
+  )
+) +
+  geom_point() +
+labs(
+      x = "Total Population",
+      y = "Plastic Waste",
+      title = "Plastic Waste x Total Poulation by Continent"
+  )
 ```
 
+
+Similar to the two plots above
 ```{r plastic-waste-population-coastal}
-# insert code here
+
+ggplot(
+  data = true_plastic,
+  mapping = aes(
+    x = coastal_pop,
+    y = plastic_waste_per_cap,
+    color = continent
+  )
+) +
+  geom_point() +
+labs(
+      x = "Costal Population",
+      y = "Plastic Waste",
+      title = "Plastic Waste x Costal Poulation by Continent"
+  )
 ```
+
+
+In total, it looks like North America has the higher plastic waste per captia (kg/day), yet they have lower populations. So it's not due to people, more due to location.
 
 ### Exercise 5
 
