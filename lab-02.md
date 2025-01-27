@@ -1,6 +1,6 @@
 Lab 02 - Plastic waste
 ================
-Benjamin
+Benjamin Egan
 1/22/25
 
 ## Load packages and data
