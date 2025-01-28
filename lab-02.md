@@ -3,16 +3,6 @@ Lab 02 - Plastic waste
 Benjamin Egan
 1/22/25
 
-## Load packages and data
-
-``` r
-library(tidyverse) 
-```
-
-``` r
-plastic_waste <- read.csv("data/plastic-waste.csv")
-```
-
 ## Exercises
 
 ### Exercise 1

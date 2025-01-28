@@ -5,13 +5,12 @@ date: "1/22/25"
 output: github_document
 ---
 
-## Load packages and data
-
-```{r load-packages, message=FALSE}
+```{r load-packages, message=FALSE, echo=FALSE}
+#echo = false used to make boxes go away
 library(tidyverse) 
 ```
 
-```{r load-data, message=FALSE}
+```{r load-data, message=FALSE, echo=FALSE}
 plastic_waste <- read.csv("data/plastic-waste.csv")
 ```
 
