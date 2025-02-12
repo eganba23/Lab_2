@@ -188,7 +188,7 @@ In total, it looks like North America has the higher plastic waste per captia (k
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+This final plot shows me the plastic waste per captia based on the amount of people located on the coast.
 
 ```{r recreate-viz}
 
@@ -214,4 +214,4 @@ labs(
 
 ```
 
-
+Based on this graph, you can tell that there are only a handful of places that exceed .4 units per captia. There are primarily in Western countries (Europe and North America). Many of the places fall either within or below the average (based on the confidence interval around the average trend line).
