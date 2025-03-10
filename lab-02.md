@@ -3,6 +3,9 @@ Lab 02 - Plastic waste
 Benjamin Egan
 1/22/25
 
+Link to the class assignment:
+<https://datascience4psych.github.io/DataScience4Psych/lab02.html>
+
 ## Exercises
 
 ### Exercise 1
@@ -195,7 +198,8 @@ people, more due to location.
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+This final plot shows me the plastic waste per captia based on the
+amount of people located on the coast.
 
 ``` r
 ggplot(
@@ -222,3 +226,9 @@ labs(
     ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 
 ![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
+
+Based on this graph, you can tell that there are only a handful of
+places that exceed .4 units per captia. There are primarily in Western
+countries (Europe and North America). Many of the places fall either
+within or below the average (based on the confidence interval around the
+average trend line).

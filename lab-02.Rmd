@@ -14,6 +14,8 @@ library(tidyverse)
 plastic_waste <- read.csv("data/plastic-waste.csv")
 ```
 
+Link to the assignment: https://datascience4psych.github.io/DataScience4Psych/lab02.html
+
 ## Exercises
 
 ### Exercise 1
