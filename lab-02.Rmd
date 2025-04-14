@@ -5,6 +5,11 @@ date: "1/22/25"
 output: github_document
 ---
 
+Assignment link: https://datascience4psych.github.io/DataScience4Psych/lab02.html
+
+Archived assignment link: https://web.archive.org/web/20250414135249/https://datascience4psych.github.io/DataScience4Psych/lab02.html#warm-up
+
+
 ```{r load-packages, message=FALSE, echo=FALSE}
 #echo = false used to make boxes go away
 library(tidyverse) 
